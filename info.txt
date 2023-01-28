@@ -1,0 +1,29 @@
+def crackPassword(n, base):
+    '''
+        take n in its current value and the base = 95 and store 
+        the reminder of n % base in the digits. after that it will round 
+        the result of n // base. this will accure until n = 0 then the 
+        loop closes and the appeded list returns.
+            {
+
+            if n = 15 then n % base (15 % 95) = reminter = 15 and result = 0
+            then n = 15 // 95 or which is 0.
+            0 passes to the loop and (0 % 95) = reminter = 0
+            loop closes and digits returns [15,0]
+
+            }
+
+    '''
+    
+    word = ''
+for x in lst:
+    word += str(char[x])
+
+    '''
+        For example, let's say lst is [3, 4, 4] and chars is ['a', 'b', 'c', 'd', 'e']. 
+        The for loop will iterate through the lst and for the first iteration x=3, 
+        so chars[x] is 'd', which is then converted to a string and added to word, 
+        which now becomes 'd'. The next iteration x=4, so chars[x] is 'e', which is 
+        then added to word, which now becomes 'de'. The final result will be 'de'.
+        
+    '''
