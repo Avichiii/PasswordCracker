@@ -41,6 +41,7 @@ while n < maxattempts:
         print(Bcolors.GREEN + f"Attempts: {str(n)}")
         print(Bcolors.GREEN + f"Time took: {str(round(time.time() - start , 2))} seconds")
         sys.exit(0)
+      
     else:
         n += 1
 
