@@ -2,14 +2,23 @@ import string
 import time
 import sys
 
+class Bcolors:
+    RED = '\u001b[31m'
+    GREEN = ' \u001b[32m'
+    YELLOW = '\u001b[33m'
+
 maxattempts = 10000000000
 start = time.time()
 chars = (string.digits + string.ascii_letters + string.punctuation)[:95]
 base = len(chars)
 n = 0
 solved = False
-password = input("Enter a Password <: ")
+password = input(Bcolors.GREEN + "Enter a Password <: ")
 
+if password == '':
+    print(Bcolors.RED + "Password is Empty, please enter a password!")
+    solved = True
+    sys.exit(1)
 
 def crackPassword(n, base):
     digits = []
@@ -17,12 +26,6 @@ def crackPassword(n, base):
         digits.append(n % base)
         n = n // base #dividing the number and storing it in the n in a round integer
     return digits
-
-
-if password == '':
-    print("Password is Empty, please enter a password!")
-    solved = True
-    sys.exit(1)
 
 
 while n < maxattempts:
@@ -33,13 +36,13 @@ while n < maxattempts:
         # print(word)
     if password == word:
         solved = True
-        print("--Stats--")
-        print("Password is " + word)
-        print(f"Attempts: {str(n)}")
-        print(f"Time took: {str(round(time.time() - start , 2))} seconds")
+        print(Bcolors.YELLOW + "--Stats--")
+        print(Bcolors.GREEN + "Password is " + word)
+        print(Bcolors.GREEN + f"Attempts: {str(n)}")
+        print(Bcolors.GREEN + f"Time took: {str(round(time.time() - start , 2))} seconds")
         sys.exit(0)
     else:
         n += 1
 
 if password not in str(maxattempts):
-    print(f"Unresolved Password after: {str(n)} attempts")
+    print(Bcolors.RED +f"Unresolved Password after: {str(n)} attempts")
